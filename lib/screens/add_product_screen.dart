@@ -1,4 +1,3 @@
-import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:step_up_admin/widgets/drop_down_button.dart';
 
@@ -67,14 +66,45 @@ class AddProductScreen extends StatelessWidget {
               SizedBox(height: 10),
               Row(
                 children: [
-                  Flexible(child: DropDownButton()),
-                  Flexible(child: DropDownButton()),
+                  Flexible(
+                    child: DropDownButton(
+                      items: ["Cate1", "Cate2", "Cate3"],
+                      selectItemHint: "Category",
+                      onSelected: (selectedValue) {
+                        print(selectedValue);
+                      },
+                    ),
+                  ),
+                  Flexible(
+                    child: DropDownButton(
+                      items: ["Brand1", "Brand2", "Brand3"],
+                      selectItemHint: 'Brand',
+                      onSelected: (selectedValue) {
+                        print(selectedValue);
+                      },
+                    ),
+                  ),
                 ],
               ),
               SizedBox(height: 10),
               Text("Offer Product ?"),
               SizedBox(height: 10),
-              DropDownButton(),
+              DropDownButton(
+                items: ["True", "False"],
+                selectItemHint: "Offer ?",
+                onSelected: (selectedValue) {
+                  print(selectedValue);
+                },
+              ),
+              SizedBox(height: 10),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.indigoAccent,
+                  foregroundColor: Colors.white,
+                ),
+                onPressed: () {},
+                child: Text("Add Product"),
+              ),
             ],
           ),
         ),
